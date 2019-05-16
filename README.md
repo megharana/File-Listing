@@ -29,11 +29,11 @@
 * traverse upto "File-Listing/medialisting" folder in terminal or in cmd
 * Run following commands:
 
-  - <python manage.py makemigrations>
-  - <python manage.py makemigrations fileupload>
-  - <python manage.py migrate>
+  - python manage.py makemigrations
+  - python manage.py makemigrations fileupload
+  - python manage.py migrate
 
-  - <python manage.py runserver> -- for actiavting server
+  - python manage.py runserver -- for actiavting server
 
 * navigate to following url : <http://127.0.0.1:8000/upload/> to view the page
 * please find the screenshot in screenshot folder
