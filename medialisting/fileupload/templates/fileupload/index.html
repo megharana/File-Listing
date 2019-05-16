@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <style>
+      
+    </style>
   </head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.30.0/js/vendor/jquery.ui.widget.js"></script>
@@ -16,7 +19,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous"
   />
-
+  
   <script
     src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
@@ -60,7 +63,17 @@
         }
       });
     });
-   
+    window.onload = function() {
+      var paths = document.getElementsByClassName("filepath");
+      for (let item of paths) {
+        item_list=item.innerHTML.split('/');
+        console.log(document.getElementById("month"));
+        document.getElementById("year").innerHTML = item_list[1];
+        document.getElementById("month").innerHTML = item_list[2];
+        document.getElementById("date").innerHTML = item_list[3];
+        document.getElementById("filename").innerHTML = item_list[4];
+      }
+    };
   </script>
 
   <body>
@@ -89,7 +102,7 @@
         {% for f in files %}
         <tr>
           <td>
-            <a href="{{ f.file.url }}">{{ f.file.name }}</a>
+            <a class="filepath" href="{{ f.file.url }}">{{ f.file.name }}</a>
           </td>
         </tr>
         {% endfor %}
@@ -117,5 +130,31 @@
         </div>
       </div>
     </div>
+    
+    <ul>
+      <li>
+        Files
+        <ul>
+          <li>
+            <span id="year"></span>
+            <ul>
+              <li>
+              <span id="month"></span>
+              <ul>
+              <li>
+              <span id="date"></span>
+              <ul>
+              <li>
+              <span id="filename"></span>
+              </li>
+              </ul>
+              </li>
+              </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </body>
 </html>

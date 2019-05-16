@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 import time
+import os
 
 from .models import FileUpload
 from .forms import FileForm
@@ -15,6 +16,7 @@ from .forms import FileForm
 class UploadView(View):
     def get(self, request):
         file_list = FileUpload.objects.all()
+
         return render(self.request, 'fileupload/index.html',
                       {'files': file_list})
 
